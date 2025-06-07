@@ -2,12 +2,13 @@ from flask import Flask, request, jsonify
 import pickle
 import numpy as np
 from prometheus_client import Counter, generate_latest, CONTENT_TYPE_LATEST
-
+from google.cloud import bigquery
 
 prediction_requests = Counter('prediction_requests_total', 'Total number of prediction requests')
 
 app = Flask(__name__)
 model = pickle.load(open("nba_model.pkl", "rb"))
+bq_client = bigquery.Client()
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -27,6 +28,20 @@ def predict():
 @app.route('/metrics')
 def metrics():
     return generate_latest(), 200, {'Content-Type': CONTENT_TYPE_LATEST}
+
+@app.route('/players')
+def get_players():
+    query = """
+        SELECT Player, MP, FGA, TRB, AST, PF, PTS
+        FROM `msds434-module4-458020.module4bucketcp.nba_players_season_metrics_labeled`
+        LIMIT 10
+    """
+    query_job = bq_client.query(query)
+    results = query_job.result()
+
+    data = [dict(row) for row in results]
+    return jsonify(data)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
