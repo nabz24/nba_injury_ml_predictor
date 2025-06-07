@@ -1,19 +1,22 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$msds434-module4-458020/nba-api', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/msds434-module4-458020/nba-api:latest', '.']
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$msds434-module4-458020/nba-api']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/msds434-module4-458020/nba-api:latest']
 
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: [
-    'run', 'deploy', 'nba-api',
-    '--image', 'gcr.io/$msds434-module4-458020/nba-api',
-    '--region', 'us-central1',
-    '--platform', 'managed',
-    '--allow-unauthenticated'
-  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      [
+        'run', 'deploy', 'nba-api',
+        '--image', 'gcr.io/msds434-module4-458020/nba-api:latest',
+        '--region', 'us-central1',
+        '--platform', 'managed',
+        '--allow-unauthenticated'
+      ]
 
+images:
+  - 'gcr.io/msds434-module4-458020/nba-api:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY
