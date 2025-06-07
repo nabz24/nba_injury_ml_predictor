@@ -2,7 +2,8 @@
 
 This repository contains the codebase for a machine learning-powered Flask application deployed to Google Cloud Run. It predicts injury risk for NBA players based on workload metrics. It used google bigquery ml features for predictions as well as python ml packages.
 
-
+## Visit App
+https://nba-api-28092311130.us-central1.run.app/players
 ---
 
 ## Screencast Videos
