@@ -41,4 +41,5 @@ def show_table():
     return render_template("table.html", table=df.to_html(classes='table table-striped', index=False))
 
 
-if == '__main__':
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
