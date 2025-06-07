@@ -5,7 +5,7 @@ This repository contains the codebase for a machine learning-powered Flask appli
 
 ---
 
-## 📽️ Screencast Videos
+## Screencast Videos
 
 1. [Functional Specification + Dataset](https://your-link-1)
 2. [BigQuery ML Model Creation](https://your-link-2)
@@ -19,3 +19,8 @@ This repository contains the codebase for a machine learning-powered Flask appli
 10. [Step 10: Implement a Production Environment](https://northwestern.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7ddbedb7-a562-42c7-a53f-b2f501146e44&start=0)
 
 ---
+## Written Posts
+1.Step 1: Identify the Problem
+For my final project, I am interested in building a cloud-native analytics application focused on predicting injury risk for professional athletes. I plan to develop an application that uses player workload data such as minutes played, number of tackles, or recent injuries, to predict the likelihood of a player getting injured in their next game. As a huge sports enthusiast, I chose a sports related project because it aligns with my interests. Since I’ve been working in tech, I hope this project will serve as a bridge into the sports industry, while also allowing me to gain hands-on experience building a machine learning cloud application that can help teams anticipate injuries and better manage player workloads.
+Question I want to explore are: Given an athlete’s recent workload history, how likely are they to sustain an injury in the near future? Do performance metrics influence injury risk? Are there specific workload patterns that lead to higher injury rates?
+I plan to use publicly available sports data from sources like Kaggle or Google BigQuery's public datasets. For machine learning I will use BigQueryML. The model will be deployed via Google App Engine, with a REST API to serve injury risk predictions. I plan to implement monitoring and alerting using Stackdriver.
