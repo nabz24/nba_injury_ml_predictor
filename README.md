@@ -34,7 +34,7 @@ NBA DatabaseLinks to an external site.
 GitHub will be a central tool in managing the development of this application. I’ll use it to track changes to my code. Most importantly, GitHub will enable automated continuous integration and deployment to Google App Engine. This setup will ensure that updates to the main branch are automatically deployed, helping me maintain code and easily deploy my updates.
 <br>
 
-<b>Step 8: Implement Containerized Application>/b> <br>
+<b>Step 8: Implement Containerized Application></b> <br>
 For my final project, I would build on my containerized REST API by introducing a second microservice running RabbitMQ as a message broker. This would allow me to implement a publish/subscribe model within my application. Instead of having clients send POST requests directly to the API to process player workload data, the API would be configured to publish a message to a RabbitMQ queue.
 
 A separate consumer microservice, running in its own container, would subscribe to this queue and handle the injury prediction task by applying a machine learning model to analyze the data and return predictions through an API response. This architecture allows the API to remain lightweight and responsive by offloading the more intensive machine learning tasks to a separate service.
