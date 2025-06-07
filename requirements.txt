@@ -4,3 +4,5 @@ scikit-learn
 prometheus_client
 google-cloud-bigquery
 pandas
+numpy
+db-dtypes
