@@ -9,7 +9,7 @@ prediction_requests = Counter('prediction_requests_total', 'Total number of pred
 
 app = Flask(__name__)
 model = pickle.load(open("nba_model.pkl", "rb"))
-bq_client = bigquery.Client()
+client = bigquery.Client()
 
 @app.route('/predict', methods=['POST'])
 def predict():
