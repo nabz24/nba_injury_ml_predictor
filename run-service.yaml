@@ -1,0 +1,21 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: nba-api
+  annotations:
+    run.googleapis.com/launch-stage: ALPHA
+    run.googleapis.com/cpu-throttling: 'false'
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/execution-environment: gen2
+        run.googleapis.com/container-dependencies: '{"collector":["app"]}'
+    spec:
+      containers:
+        - name: app
+          image: gcr.io/msds434-module4-458020/nba-api
+          ports:
+            - containerPort: 8080
+        - name: collector
+          image: us-docker.pkg.dev/cloud-ops-agents-artifacts/cloud-run-gmp-sidecar/cloud-run-gmp-sidecar:1.2.0
