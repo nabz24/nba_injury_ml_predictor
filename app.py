@@ -30,18 +30,14 @@ def metrics():
     return generate_latest(), 200, {'Content-Type': CONTENT_TYPE_LATEST}
 
 @app.route('/players')
-def get_players():
+def show_table():
     query = """
-        SELECT Player, MP, FGA, TRB, AST, PF, PTS
+        SELECT Player, MP, FGA, TRB, AST, PF, PTS, isInjuredNextGame 
         FROM `msds434-module4-458020.module4bucketcp.nba_players_season_metrics_labeled`
-        LIMIT 10
+        LIMIT 20
     """
-    query_job = bq_client.query(query)
-    results = query_job.result()
-
-    data = [dict(row) for row in results]
-    return jsonify(data)
+    df = client.query(query).to_dataframe()
+    return render_template("table.html", table=df.to_html(classes='table table-striped', index=False))
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+if == '__main__':
