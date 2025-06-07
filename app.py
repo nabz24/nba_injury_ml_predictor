@@ -38,7 +38,7 @@ def show_table():
         LIMIT 20
     """
     df = client.query(query).to_dataframe()
-    return render_template("table.html", table=df.to_html(classes='table table-striped', index=False))
+    return render_template("table.html", table=df.to_html(classes='table table-striped text-start', index=False))
 
 
 if __name__ == '__main__':
