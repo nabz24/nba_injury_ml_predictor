@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import pickle
 import numpy as np
 from prometheus_client import Counter, generate_latest, CONTENT_TYPE_LATEST
