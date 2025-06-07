@@ -4,6 +4,7 @@ This repository contains the codebase for a machine learning-powered Flask appli
 
 ## Visit App
 https://nba-api-28092311130.us-central1.run.app/players
+
 ---
 
 ## Screencast Videos
