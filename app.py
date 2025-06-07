@@ -3,6 +3,7 @@ import pickle
 import numpy as np
 from prometheus_client import Counter, generate_latest, CONTENT_TYPE_LATEST
 from google.cloud import bigquery
+import pandas as pd
 
 prediction_requests = Counter('prediction_requests_total', 'Total number of prediction requests')
 
